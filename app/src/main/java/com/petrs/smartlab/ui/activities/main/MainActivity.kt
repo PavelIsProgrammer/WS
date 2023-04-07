@@ -1,7 +1,8 @@
-package com.petrs.smartlab
+package com.petrs.smartlab.ui.activities.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.petrs.smartlab.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
