@@ -17,4 +17,11 @@
     <color name="text_blue">#57A9FF</color>
     <color name="text_green">#00B712</color>
     <color name="text_grey">#939396</color>
+
+    <color name="block_button_blue">#C9D4FB</color>
+
+    <color name="edit_text_background">#F5F5F9</color>
+    <color name="edit_text_border">#EBEBEB</color>
+
+    <color name="grey_F5">#F5F5F9</color>
 </resources>

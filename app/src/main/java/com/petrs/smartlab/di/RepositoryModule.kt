@@ -15,6 +15,8 @@ val repositoryModule = module {
     }
 
     single<SmartLabRepository> {
-        SmartLabRepositoryImpl()
+        SmartLabRepositoryImpl(
+            api = get()
+        )
     }
 }

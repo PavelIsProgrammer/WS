@@ -53,7 +53,7 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding, OnboardingVie
                     is DomainResult.Error -> {}
                     is DomainResult.Loading -> {}
                     is DomainResult.Success -> {
-                        findNavController().navigate(OnboardingFragmentDirections.actionOnboardingFragmentToEmptyFragment())
+                        findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
                     }
                 }
             }

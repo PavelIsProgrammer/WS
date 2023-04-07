@@ -20,7 +20,8 @@ class App : Application() {
                 domainModule,
                 repositoryModule,
                 sharedPreferencesModule,
-                uiModule
+                uiModule,
+                networkModule
             )
         }
     }
