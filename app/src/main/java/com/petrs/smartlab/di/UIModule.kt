@@ -1,6 +1,11 @@
 package com.petrs.smartlab.di
 
 import com.petrs.smartlab.ui.activities.login.LoginViewModel
+import com.petrs.smartlab.ui.activities.main.MainActivityViewModel
+import com.petrs.smartlab.ui.fragments.main.analyzes.AnalyzesViewModel
+import com.petrs.smartlab.ui.fragments.main.profile.ProfileViewModel
+import com.petrs.smartlab.ui.fragments.main.results.ResultsViewModel
+import com.petrs.smartlab.ui.fragments.main.support.SupportViewModel
 import com.petrs.smartlab.ui.fragments.start.client_card.CreateClientCardViewModel
 import com.petrs.smartlab.ui.fragments.start.create_password.CreatePasswordViewModel
 import com.petrs.smartlab.ui.fragments.start.email_code.EmailCodeViewModel
@@ -56,5 +61,28 @@ val uiModule = module {
             createProfileUseCase = get(),
             saveProfileUseCase = get()
         )
+    }
+
+    viewModel {
+        MainActivityViewModel()
+    }
+
+    viewModel {
+        AnalyzesViewModel(
+            getCatalogUseCase = get(),
+            getNewsUseCase = get()
+        )
+    }
+
+    viewModel {
+        ResultsViewModel()
+    }
+
+    viewModel {
+        SupportViewModel()
+    }
+
+    viewModel {
+        ProfileViewModel()
     }
 }

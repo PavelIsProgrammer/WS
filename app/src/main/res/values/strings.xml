@@ -27,6 +27,16 @@
     <string name="text_create_password">Создайте пароль</string>
     <string name="text_create_password_description">Для защиты ваших персональных данных</string>
     <string name="text_send_code_again">Отправить код повторно</string>
+    <string name="price_rub">%s ₽</string>
+    <string name="text_description">Описание</string>
+    <string name="text_results_time_title">Результаты через:</string>
+    <string name="text_bio_title">Биоматериал:</string>
+    <string name="text_preparation_title">Подготовка</string>
+    <string name="text_add_price">Добавить за %s ₽</string>
+    <string name="remove_from_cart">Убрать из корзины</string>
+    <string name="text_analyzes_catalog">Каталог анализов</string>
+    <string name="text_news">Акции и новости</string>
+    <string name="text_search_analyzes">Искать анализы</string>
 
     <string-array name="sex_orientation">
         <item>Мужской</item>

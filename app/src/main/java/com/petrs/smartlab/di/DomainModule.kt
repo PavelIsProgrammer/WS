@@ -71,4 +71,17 @@ val domainModule = module {
             sharedPreferencesRepository = get()
         )
     }
+
+    factory {
+        GetCatalogUseCase(
+            repository = get()
+        )
+    }
+
+    factory {
+        GetNewsUseCase(
+            repository = get()
+        )
+    }
+
 }

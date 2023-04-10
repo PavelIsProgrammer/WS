@@ -45,4 +45,8 @@ class SmartLabRepositoryImpl(private val api: SmartLabApi) : SmartLabRepository 
     override suspend fun createProfile(token: String, profileBody: CreateProfileBody) = execRequest {
         api.createProfile(token, profileBody)
     }
+
+    override suspend fun getCatalog() = execRequest { api.getCatalog() }
+
+    override suspend fun getNews() = execRequest { api.getNews() }
 }
