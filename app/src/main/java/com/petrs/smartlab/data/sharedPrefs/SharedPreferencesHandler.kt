@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.petrs.smartlab.data.models.CatalogItemDTO
 import com.petrs.smartlab.data.models.ProfileInfoDTO
 
 class SharedPreferencesHandler(context: Context) {
@@ -37,4 +38,12 @@ class SharedPreferencesHandler(context: Context) {
         return if (res != null) Gson().fromJson(res, ProfileInfoDTO::class.java) else ProfileInfoDTO()
     }
 
+    fun saveCart(cart: List<CatalogItemDTO>) =
+        sharedPrefs.edit().putString(SharedPreferencesKeys.Cart.name, Gson().toJson(cart)).apply()
+
+    fun getCart(): List<CatalogItemDTO> {
+        val res = sharedPrefs.getString(SharedPreferencesKeys.Cart.name, null)
+        val listType = object : TypeToken<List<CatalogItemDTO>>(){}.type
+        return if (res.isNullOrEmpty()) emptyList() else Gson().fromJson(res, listType)
+    }
 }

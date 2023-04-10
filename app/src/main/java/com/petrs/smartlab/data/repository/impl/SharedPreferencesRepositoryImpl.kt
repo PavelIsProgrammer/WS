@@ -1,5 +1,6 @@
 package com.petrs.smartlab.data.repository.impl
 
+import com.petrs.smartlab.data.models.CatalogItemDTO
 import com.petrs.smartlab.data.models.ProfileInfoDTO
 import com.petrs.smartlab.data.repository.SharedPreferencesRepository
 import com.petrs.smartlab.data.sharedPrefs.SharedPreferencesHandler
@@ -21,4 +22,8 @@ class SharedPreferencesRepositoryImpl(private val handler: SharedPreferencesHand
     override fun saveProfile(profile: ProfileInfoDTO) = handler.saveProfile(profile)
 
     override fun getProfile(): ProfileInfoDTO = handler.getProfile()
+
+    override fun saveCart(cart: List<CatalogItemDTO>) = handler.saveCart(cart)
+
+    override fun getCart(): List<CatalogItemDTO> = handler.getCart()
 }

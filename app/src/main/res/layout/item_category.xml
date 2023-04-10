@@ -8,6 +8,7 @@
     android:outlineSpotShadowColor="@color/transparent"
     android:outlineAmbientShadowColor="@color/transparent"
     tools:targetApi="p"
+    app:cardUseCompatPadding="true"
     android:layout_marginStart="20dp"
     app:cardBackgroundColor="@color/grey_F5">
 

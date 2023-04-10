@@ -1,5 +1,6 @@
 package com.petrs.smartlab.data.repository
 
+import com.petrs.smartlab.data.models.CatalogItemDTO
 import com.petrs.smartlab.data.models.ProfileInfoDTO
 
 interface SharedPreferencesRepository {
@@ -15,4 +16,7 @@ interface SharedPreferencesRepository {
 
     fun saveProfile(profile: ProfileInfoDTO)
     fun getProfile(): ProfileInfoDTO
+
+    fun saveCart(cart: List<CatalogItemDTO>)
+    fun getCart(): List<CatalogItemDTO>
 }

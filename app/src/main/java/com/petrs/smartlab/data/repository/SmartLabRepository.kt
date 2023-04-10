@@ -3,6 +3,8 @@ package com.petrs.smartlab.data.repository
 import com.petrs.smartlab.data.DataResult
 import com.petrs.smartlab.data.models.*
 import com.petrs.smartlab.data.models.request.CreateProfileBody
+import com.petrs.smartlab.data.models.request.UpdateProfileBody
+import okhttp3.RequestBody
 
 interface SmartLabRepository {
 
@@ -15,4 +17,8 @@ interface SmartLabRepository {
     suspend fun getCatalog(): DataResult<List<CatalogItemDTO>>
 
     suspend fun getNews(): DataResult<List<NewsItemDTO>>
+
+    suspend fun updateProfile(token: String, profileBody: UpdateProfileBody): DataResult<ProfileInfoDTO>
+
+    suspend fun updateProfilePhoto(token: String, file: RequestBody, type: String): DataResult<Unit>
 }

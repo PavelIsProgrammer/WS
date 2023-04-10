@@ -3,6 +3,7 @@ package com.petrs.smartlab.di
 import com.petrs.smartlab.ui.activities.login.LoginViewModel
 import com.petrs.smartlab.ui.activities.main.MainActivityViewModel
 import com.petrs.smartlab.ui.fragments.main.analyzes.AnalyzesViewModel
+import com.petrs.smartlab.ui.fragments.main.cart.CartViewModel
 import com.petrs.smartlab.ui.fragments.main.profile.ProfileViewModel
 import com.petrs.smartlab.ui.fragments.main.results.ResultsViewModel
 import com.petrs.smartlab.ui.fragments.main.support.SupportViewModel
@@ -70,7 +71,9 @@ val uiModule = module {
     viewModel {
         AnalyzesViewModel(
             getCatalogUseCase = get(),
-            getNewsUseCase = get()
+            getNewsUseCase = get(),
+            getCartUseCase = get(),
+            saveCartUseCase = get()
         )
     }
 
@@ -83,6 +86,18 @@ val uiModule = module {
     }
 
     viewModel {
-        ProfileViewModel()
+        ProfileViewModel(
+            getProfileUseCase = get(),
+            saveProfileUseCase = get(),
+            updateProfilePhotoUseCase = get(),
+            updateProfileUseCase = get()
+        )
+    }
+
+    viewModel {
+        CartViewModel(
+            getCartUseCase = get(),
+            saveCartUseCase = get()
+        )
     }
 }

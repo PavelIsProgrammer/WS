@@ -9,5 +9,14 @@
         android:id="@+id/analyzesFragment"
         android:name="com.petrs.smartlab.ui.fragments.main.analyzes.AnalyzesFragment"
         android:label="fragment_analyzes"
-        tools:layout="@layout/fragment_analyzes" />
+        tools:layout="@layout/fragment_analyzes" >
+        <action
+            android:id="@+id/action_analyzesFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.petrs.smartlab.ui.fragments.main.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

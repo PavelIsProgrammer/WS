@@ -84,4 +84,29 @@ val domainModule = module {
         )
     }
 
+    factory {
+        SaveCartUseCase(
+            sharedPreferencesRepository = get()
+        )
+    }
+
+    factory {
+        GetCartUseCase(
+            sharedPreferencesRepository = get()
+        )
+    }
+
+    factory {
+        UpdateProfileUseCase(
+            repository = get(),
+            sharedPreferencesRepository = get()
+        )
+    }
+
+    factory {
+        UpdateProfilePhotoUseCase(
+            repository = get(),
+            sharedPreferencesRepository = get()
+        )
+    }
 }

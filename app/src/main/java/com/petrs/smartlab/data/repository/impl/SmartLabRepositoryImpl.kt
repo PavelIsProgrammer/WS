@@ -8,7 +8,9 @@ import com.petrs.smartlab.data.ErrorType
 import com.petrs.smartlab.data.api.SmartLabApi
 import com.petrs.smartlab.data.models.ApiError
 import com.petrs.smartlab.data.models.request.CreateProfileBody
+import com.petrs.smartlab.data.models.request.UpdateProfileBody
 import com.petrs.smartlab.data.repository.SmartLabRepository
+import okhttp3.RequestBody
 import retrofit2.Response
 import java.io.IOException
 
@@ -49,4 +51,17 @@ class SmartLabRepositoryImpl(private val api: SmartLabApi) : SmartLabRepository 
     override suspend fun getCatalog() = execRequest { api.getCatalog() }
 
     override suspend fun getNews() = execRequest { api.getNews() }
+
+    override suspend fun updateProfile(
+        token: String,
+        profileBody: UpdateProfileBody
+    ) = execRequest { api.updateProfile(token, profileBody) }
+
+    override suspend fun updateProfilePhoto(
+        token: String,
+        file: RequestBody,
+        type: String
+    ): DataResult<Unit> = execRequest {
+        api.updateProfilePhoto(token = token, file = file, type = type)
+    }
 }

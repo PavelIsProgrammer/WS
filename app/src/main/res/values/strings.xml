@@ -37,6 +37,14 @@
     <string name="text_analyzes_catalog">Каталог анализов</string>
     <string name="text_news">Акции и новости</string>
     <string name="text_search_analyzes">Искать анализы</string>
+    <string name="text_go_to_order_register">Перейти к оформлению заказа</string>
+    <string name="text_cart">Корзина</string>
+    <string name="text_sum">Сумма</string>
+    <string name="text_go_to_cart">В корзину</string>
+    <string name="text_cancel">Отмена</string>
+    <string name="text_client_card_description">Без карты пациента вы не сможете заказать анализы. \n\nВ картах пациентов будут храниться результаты анализов вас и ваших близких.</string>
+    <string name="text_client_card">Карта пациента</string>
+    <string name="text_save">Сохранить</string>
 
     <string-array name="sex_orientation">
         <item>Мужской</item>

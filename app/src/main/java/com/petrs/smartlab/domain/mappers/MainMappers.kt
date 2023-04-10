@@ -26,3 +26,16 @@ fun NewsItemDTO.toDomain() =
         price = price,
         image = image
     )
+
+fun CatalogItemDomain.toDTO() =
+    CatalogItemDTO(
+        id = id,
+        title = title,
+        description = description,
+        price = price,
+        category = category,
+        timeResult = timeResult,
+        preparation = preparation,
+        bio = bio,
+        inCart = inCart
+    )

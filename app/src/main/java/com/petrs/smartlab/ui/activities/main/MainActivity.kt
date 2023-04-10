@@ -2,6 +2,7 @@ package com.petrs.smartlab.ui.activities.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentManager
 import com.petrs.smartlab.R
 import com.petrs.smartlab.databinding.ActivityMainBinding
@@ -47,5 +48,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>(
             intent = intent,
             this
         )
+    }
+
+    fun showBottomBar() {
+        binding.bottomNav.isVisible = true
+    }
+
+    fun hideBottomBar() {
+        binding.bottomNav.isVisible = false
     }
 }
