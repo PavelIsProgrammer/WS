@@ -7,9 +7,13 @@ import com.petrs.smartlab.data.DataResult
 import com.petrs.smartlab.data.ErrorType
 import com.petrs.smartlab.data.api.SmartLabApi
 import com.petrs.smartlab.data.models.ApiError
+import com.petrs.smartlab.data.models.CreateOrderDTO
+import com.petrs.smartlab.data.models.MessageDTO
+import com.petrs.smartlab.data.models.request.CreateOrderRequestBody
 import com.petrs.smartlab.data.models.request.CreateProfileBody
 import com.petrs.smartlab.data.models.request.UpdateProfileBody
 import com.petrs.smartlab.data.repository.SmartLabRepository
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
 import java.io.IOException
@@ -59,9 +63,21 @@ class SmartLabRepositoryImpl(private val api: SmartLabApi) : SmartLabRepository 
 
     override suspend fun updateProfilePhoto(
         token: String,
-        file: RequestBody,
-        type: String
-    ): DataResult<Unit> = execRequest {
-        api.updateProfilePhoto(token = token, file = file, type = type)
+        file: MultipartBody.Part
+    ): DataResult<MessageDTO> = execRequest {
+        api.updateProfilePhoto(token = token, file = file)
+    }
+
+    override suspend fun createOrder(
+        token: String,
+        orderRequestBody: CreateOrderRequestBody
+    ): DataResult<CreateOrderDTO> = execRequest { api.createOrder(token, orderRequestBody) }
+
+    override suspend fun addAudioMessageToOrder(
+        token: String,
+        orderId: MultipartBody.Part,
+        audio: MultipartBody.Part
+    ): DataResult<MessageDTO> = execRequest {
+        api.addAudioComment(token, orderId, audio)
     }
 }

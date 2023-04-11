@@ -8,16 +8,21 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.petrs.smartlab.R
+import com.petrs.smartlab.data.ErrorType
 import com.petrs.smartlab.databinding.FragmentProfileBinding
 import com.petrs.smartlab.domain.DomainResult
 import com.petrs.smartlab.ui.base.BaseFragment
+import com.petrs.smartlab.ui.base.error_dialog.ErrorDialog
+import com.petrs.smartlab.ui.base.error_dialog.ErrorDialogParams
 import com.petrs.smartlab.utils.getRealPathFromURI
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.File
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>(
     FragmentProfileBinding::inflate
 ) {
     override val viewModel: ProfileViewModel by viewModel()
+    private lateinit var photoFile: File
 
     private val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
@@ -27,6 +32,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>(
     private var photoLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
             if (activityResult.data != null) {
+                photoFile = File(
+                    getRealPathFromURI(
+                        requireContext(),
+                        activityResult.data!!.data!!
+                    )!!
+                )
                 viewModel.updateProfilePhoto(
                     getRealPathFromURI(
                         requireContext(),
@@ -87,8 +98,43 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>(
                             findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToCreateClientCardFragment2())
                         }
                     }
-                    is DomainResult.Error -> {}
+                    is DomainResult.Error -> {
+                        val message = if (domainResult.type == ErrorType.NO_INTERNET)
+                            getString(R.string.network_error)
+                        else
+                            domainResult.errors
+                        val errorDialog =
+                            ErrorDialog.getInstance(ErrorDialogParams(message))
+                        errorDialog.show(childFragmentManager, ErrorDialog.TAG)
+                    }
                     is DomainResult.Loading -> {}
+                }
+            }
+            avatar.observe { domainResult ->
+                when (domainResult) {
+                    is DomainResult.Error -> {
+                        val message = if (domainResult.type == ErrorType.NO_INTERNET)
+                            getString(R.string.network_error)
+                        else
+                            domainResult.errors
+                        val errorDialog =
+                            ErrorDialog.getInstance(ErrorDialogParams(message))
+                        errorDialog.show(childFragmentManager, ErrorDialog.TAG)
+                    }
+                    is DomainResult.Loading -> {}
+                    is DomainResult.Success -> {
+                        val result = profile.value
+                        if (result is DomainResult.Success) {
+                            val newProfilesData = result.data
+                            newProfilesData.image = photoFile.path
+                            saveProfileUseCase(newProfilesData)
+
+                            Glide.with(requireContext())
+                                .load(photoFile.path)
+                                .error(R.drawable.ic_camera)
+                                .into(binding.ivProfilePhoto)
+                        }
+                    }
                 }
             }
         }

@@ -2,7 +2,7 @@
     <string name="app_name">SmartLab</string>
     <string name="text_app_name">Смартлаб</string>
     <string name="text_skip">Пропустить</string>
-    
+
     <string name="strange_error">Непредвиденная ошибка</string>
     <string name="network_error">Отстутствует подключение к интернету! Проверьте соединение</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -45,6 +45,42 @@
     <string name="text_client_card_description">Без карты пациента вы не сможете заказать анализы. \n\nВ картах пациентов будут храниться результаты анализов вас и ваших близких.</string>
     <string name="text_client_card">Карта пациента</string>
     <string name="text_save">Сохранить</string>
+    <string name="text_order_register">Оформление заказа</string>
+    <string name="text_select_date_time">Выберите дату и время</string>
+    <string name="text_select_date_time_title">Дата и время *</string>
+    <string name="text_enter_address">Введите ваш адрес</string>
+    <string name="text_enter_address_title">Адрес *</string>
+    <string name="text_enter_phone">Введите ваш телефон</string>
+    <string name="text_enter_phone_title">Телефон *</string>
+    <string name="text_enter_comment_title">Комментарий</string>
+    <string name="text_enter_comment">Можете оставить свои пожелания</string>
+    <string name="analyzes_quantity">%d анализ</string>
+    <string name="text_connect_bank">Связываемся с банком…</string>
+    <string name="text_confirm_payment">Производим оплату…</string>
+    <string name="text_order_payed_description">Вам осталось дождаться приезда медсестры и сдать анализы. До скорой встречи! \n\nНе забудьте ознакомиться с правилами подготовки к сдаче анализов</string>
+    <string name="text_new_patient_adding">Добавление нового пациента</string>
+    <string name="text_add_patient">Добавить пациента</string>
+    <string name="text_confirm">Подтвердить</string>
+    <string name="text_select_patients">Выбор пациента</string>
+    <string name="text_your_address">Ваш адрес</string>
+    <string name="text_address_dialog_title">Адрес сдачи анализов</string>
+    <string name="text_longitude">Долгота</string>
+    <string name="text_latitude">Широта</string>
+    <string name="text_altitude">Высота</string>
+    <string name="text_room">Квартира</string>
+    <string name="text_entrance">Подъезд</string>
+    <string name="text_floor">Этаж</string>
+    <string name="text_intercom">Домофон</string>
+    <string name="text_save_this_address">Сохранить этот адрес?</string>
+    <string name="text_save_address_title">Название: например дом, работа</string>
+    <string name="text_pay">Оплата</string>
+    <string name="text_order_successfully_payed">Ваш заказ успешно оплачен!</string>
+    <string name="text_checkue">Чек покупки</string>
+    <string name="text_go_to_main">На главную</string>
+    <string name="text_order">Заказать</string>
+    <string name="text_promocode">Промокод</string>
+    <string name="text_google_pay">Оплата Google Pay</string>
+    <string name="text_who_get_analyzes">Кто будет сдавать анализы? *</string>
 
     <string-array name="sex_orientation">
         <item>Мужской</item>

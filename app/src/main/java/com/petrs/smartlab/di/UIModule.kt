@@ -4,6 +4,9 @@ import com.petrs.smartlab.ui.activities.login.LoginViewModel
 import com.petrs.smartlab.ui.activities.main.MainActivityViewModel
 import com.petrs.smartlab.ui.fragments.main.analyzes.AnalyzesViewModel
 import com.petrs.smartlab.ui.fragments.main.cart.CartViewModel
+import com.petrs.smartlab.ui.fragments.main.order_payed.OrderPayedViewModel
+import com.petrs.smartlab.ui.fragments.main.order_register.OrderRegisterViewModel
+import com.petrs.smartlab.ui.fragments.main.payment.PaymentViewModel
 import com.petrs.smartlab.ui.fragments.main.profile.ProfileViewModel
 import com.petrs.smartlab.ui.fragments.main.results.ResultsViewModel
 import com.petrs.smartlab.ui.fragments.main.support.SupportViewModel
@@ -99,5 +102,24 @@ val uiModule = module {
             getCartUseCase = get(),
             saveCartUseCase = get()
         )
+    }
+
+    viewModel {
+        OrderRegisterViewModel(
+            getCartUseCase = get(),
+            addAudioCommentToOrderUseCase = get(),
+            createProfileUseCase = get(),
+            getProfileUseCase = get(),
+            createOrderUseCase = get(),
+            saveCartUseCase = get()
+        )
+    }
+
+    viewModel {
+        PaymentViewModel()
+    }
+
+    viewModel {
+        OrderPayedViewModel()
     }
 }

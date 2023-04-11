@@ -109,4 +109,18 @@ val domainModule = module {
             sharedPreferencesRepository = get()
         )
     }
+
+    factory {
+        CreateOrderUseCase(
+            repository = get(),
+            sharedPreferencesRepository = get()
+        )
+    }
+
+    factory {
+        AddAudioCommentToOrderUseCase(
+            repository = get(),
+            sharedPreferencesRepository = get()
+        )
+    }
 }

@@ -42,7 +42,9 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>(
                 viewModel.clearCart()
             }
 
-            btnGoToOrder.setOnClickListener {}
+            btnGoToOrder.setOnClickListener {
+                findNavController().navigate(CartFragmentDirections.actionCartFragmentToOrderRegisterFragment())
+            }
         }
     }
 
